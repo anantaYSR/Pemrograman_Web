@@ -19,24 +19,26 @@
             <span>Halaman Depan</span>
           </a>
         </li>
-        <li>
-          <a href="<?= $_SESSION['role'] = 'admin' ? '../../admin/dashboard' : '../../user/dashboard' ?>">
-            <i class="fa-regular fa-user"></i>
-            <span>Profile</span>
-          </a>
-        </li>
-        <li>
-          <a href="../../auth/logout.php">
-            <i class="fa-regular fa-pen-to-square"></i>
-            <span>Catatan</span>
-          </a>
-        </li>
-        <li>
-          <a href="../../auth/logout.php">
-            <i class="fa-regular fa-bookmark"></i>
-            <span>Bookmark</span>
-          </a>
-        </li>
+        <?php if($_SESSION['role'] == 'user'): ?>
+          <li>
+            <a href="../../auth/logout.php">
+              <i class="fa-solid fa-user"></i>
+              <span>Profile</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../auth/logout.php">
+              <i class="fa-regular fa-pen-to-square"></i>
+              <span>Catatan</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../auth/logout.php">
+              <i class="fa-regular fa-bookmark"></i>
+              <span>Bookmark</span>
+            </a>
+          </li>
+        <?php endif; ?>
         <li>
           <a href="../../auth/logout.php" class="text-error">
             <i class="fa-solid fa-arrow-right-from-bracket"></i>

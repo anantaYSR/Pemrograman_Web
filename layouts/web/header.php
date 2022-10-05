@@ -1,18 +1,39 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="lofi">
+<html lang="zxx">
+
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="shortcut icon" href="./assets/img/favicon.ico" type="image/x-icon">
-  <title>Kertas - Sebuah Arsip Jurnal</title>
-  <link href="https://cdn.jsdelivr.net/npm/daisyui@2.31.0/dist/full.css" rel="stylesheet" type="text/css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../../assets/css/style.css">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://kit.fontawesome.com/298ddad7ce.js" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta name="description" content="Yoga Studio Template">
+    <meta name="keywords" content="Yoga, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Yummy | Template</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,700&display=swap" rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="../../assets/web/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="../../assets/web/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="../../assets/web/css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="../../assets/web/css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="../../assets/web/css/style.css" type="text/css">
 </head>
+
 <body>
-<?php require_once('navbar.php') ?>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+    <!-- Header Section Begin -->
+    <header class="header-section">
+        <div class="container">
+            <div class="logo">
+                <a href="./index.html"><img src="img/logo.png" alt=""></a>
+            </div>
+            <div class="nav-menu">
+                <?php require_once('navbar.php') ?>
+            </div>
+            <div id="mobile-menu-wrap"></div>
+        </div>
+    </header>

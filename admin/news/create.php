@@ -9,15 +9,41 @@
     <form action="">
       <div class="form-control">
         <div class="label">
-          <div class="label-text">Konten</div>
+          <div class="label-text">Jenis Berita</div>
         </div>
-        <input datepicker type="text" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Select date">
+        <select class="select select-bordered w-full max-w-xs">
+          <option disabled selected>Berita</option>
+          <option>Pengumuman</option>
+        </select>
+      </div>
+      <div class="form-control">
+        <div class="label">
+          <div class="label-text">Judul</div>
+        </div>
+        <input type="text" class="input input-bordered w-full" placeholder="Judul">
+      </div>
+      <div class="form-control">
+        <div class="label">
+          <div class="label-text">Tanggal</div>
+        </div>
+        <div class="form-control">
+          <label class="input-group">
+            <span><i class="fa-solid fa-calendar"></i></span>
+            <input datepicker type="text" class="input input-bordered w-full" placeholder="Tanggal">
+          </label>
+        </div>
+      </div>
+      <div class="form-control">
+        <div class="label">
+          <div class="label-text">Gambar Banner</div>
+        </div>
+        <input class="block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer focus:outline-none" id="file_input" type="file">
       </div>
       <div class="form-control">
         <label class="label">
           <span class="label-text">Konten</span>
         </label> 
-        <textarea class="textarea textarea-bordered h-24 editor" placeholder="Bio"></textarea>
+        <textarea class="textarea textarea-bordered h-24 editor" placeholder="Konten"></textarea>
       </div>
       <div class="text-right mt-4">
         <button type="submit" class="btn btn-outline">Simpan</button>

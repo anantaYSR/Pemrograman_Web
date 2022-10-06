@@ -1,18 +1,25 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="lofi">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="shortcut icon" href="./assets/img/favicon.ico" type="image/x-icon">
-  <title>Kertas - Sebuah Arsip Jurnal</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://cdn.jsdelivr.net/npm/daisyui@2.31.0/dist/full.css" rel="stylesheet" type="text/css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../assets/css/style.css">
-  <script src="https://kit.fontawesome.com/298ddad7ce.js" crossorigin="anonymous"></script>
+<html lang="en">
+
+<head> 
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <!-- Primary Meta Tags -->
+  <title>Volt Premium Bootstrap Dashboard - Sign in page</title>
+  <!-- Sweet Alert -->
+  <link type="text/css" href="../assets/dashboard/vendor/sweetalert2/dist/sweetalert2.min.css" rel="stylesheet">
+  <!-- Notyf -->
+  <link type="text/css" href="../assets/dashboard/vendor/notyf/notyf.min.css" rel="stylesheet">
+  <!-- Volt CSS -->
+  <link type="text/css" href="../assets/dashboard/css/volt.css" rel="stylesheet">
 </head>
+
 <body>
-<?php require_once('navbar.php') ?>
+    <main>
+        <section class="vh-lg-100 mt-5 mt-lg-0 bg-soft d-flex align-items-center">
+            <div class="container">
+                <p class="text-center">
+                    <a href="../dashboard/dashboard.html" class="d-flex align-items-center justify-content-center">
+                        <svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l2.293 2.293a1 1 0 010 1.414z" clip-rule="evenodd"></path></svg>
+                        Kembali ke homepage
+                    </a>
+                </p>

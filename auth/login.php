@@ -10,14 +10,14 @@ if(isset($_SESSION['status'])) {
   }
 }
 
-if(isset($_POST['email'])) {
-  if($_POST['email'] == 'admin@kertas.my.id' && $_POST['password'] == '123123') {
-    $_SESSION['email'] = "admin@kertas.my.id";
+if(isset($_POST['username'])) {
+  if($_POST['username'] == 'admin' && $_POST['password'] == 'password') {
+    $_SESSION['username'] = "admin";
     $_SESSION['role'] = 'admin';
     $_SESSION['status'] = "login";
     header("Location:../admin/dashboard");
-  } else if($_POST['email'] == 'user@kertas.my.id' && $_POST['password'] == '123123') {
-    $_SESSION['email'] = "user@kertas.my.id";
+  } else if($_POST['username'] == 'user' && $_POST['password'] == 'password') {
+    $_SESSION['username'] = "user";
     $_SESSION['role'] = 'user';
     $_SESSION['status'] = "login";
     header("Location:../user/dashboard");
@@ -26,48 +26,46 @@ if(isset($_POST['email'])) {
   }
 }
 ?>
-
-<?php require_once('../layouts/auth/header.php') ?>
-  <!-- MAIN -->
-  <main class="min-h-screen flex items-center justify-center">
-    <div class="hero min-h-screen bg-base-200">
-      <div class="hero-content flex-col lg:flex-row-reverse">
-        <div class="text-center lg:text-left lg:pl-8">
-          <h1 class="text-5xl font-bold">Masuk</h1>
-          <p class="py-6">Pastikan dirimu bermanfaat tuk yang lainnya.</p>
-        </div>
-        <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-          <div class="card-body">
-            <img src="../assets/img/logo_black.png" class="object-contain h-[120px]">
-            <?php if(isset($_GET['denied'])): ?>
-            <div class="alert alert-error">
-              <span>Akun tidak terdaftar!</span>
+<?php  require_once('../layouts/auth/header.php') ?>
+<div class="row justify-content-center form-bg-image">
+    <div class="col-12 d-flex align-items-center justify-content-center">
+        <div class="bg-white shadow border-0 rounded border-light p-4 p-lg-5 w-100 fmxw-500">
+            <div class="text-center text-md-center mb-4 mt-md-0">
+                <img src="../assets/img/logo.png" style="height: 100px;" alt="">
             </div>
-            <?php endif; ?>
-            <form action="" method="post">
-              <div class="form-control">
-                <label class="label">
-                  <span class="label-text">Email</span>
-                </label>
-                <input type="email" name="email" placeholder="info@kertas.my.id" class="input input-bordered" required />
-              </div>
-              <div class="form-control">
-                <label class="label">
-                  <span class="label-text">Password</span>
-                </label>
-                <input type="password" name="password" placeholder="Rahasia" class="input input-bordered" required />
-                <label class="label">
-                  <a href="#" class="label-text-alt link link-hover">Lupa Password?</a>
-                </label>
-              </div>
-              <div class="form-control mt-6">
-                <button type="submit" class="btn btn-outline">Login</button>
-              </div>
+            <form action="" class="mt-4" method="POST">
+                <!-- Form -->
+                <div class="form-group mb-4">
+                    <label for="username">Username</label>
+                    <div class="input-group">
+                        <input type="text" name="username" class="form-control" placeholder="Username" id="username" autofocus required>
+                    </div>  
+                </div>
+                <!-- End of Form -->
+                <div class="form-group">
+                    <!-- Form -->
+                    <div class="form-group mb-4">
+                        <label for="password">Password</label>
+                        <div class="input-group">
+                            <input type="password" name="password" placeholder="Password" class="form-control" id="password" required>
+                        </div>  
+                    </div>
+                    <!-- End of Form -->
+                    <div class="d-flex justify-content-between align-items-top mb-4">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="remember">
+                            <label class="form-check-label mb-0" for="remember">
+                              Ingat saya
+                            </label>
+                        </div>
+                        <div><a href="./forgot-password.html" class="small text-right">Lupa password?</a></div>
+                    </div>
+                </div>
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-gray-800">Masuk</button>
+                </div>
             </form>
-          </div>
         </div>
-      </div>
     </div>
-  </main>
-
-  <?php  require_once('../layouts/auth/footer.php') ?>
+</div>
+<?php  require_once('../layouts/auth/footer.php') ?>

@@ -1,27 +1,28 @@
-<?php
-
-session_start();
-?>
-
 <?php  require_once('../../layouts/web/header.php') ?>
 <!-- MAIN -->
-<main class="min-h-screen bg-base-200">
-  <section class="hero min-h-[60vh] bg-base-200">
-    <div class="hero-content text-left w-full flex-col items-start pt-5">
-      <h1 class="text-5xl font-bold mb-5">Tentang</h1>
-      <div class="flex flex-col lg:flex-row items-center">
-        <img src="https://bayusetiawan.my.id/static/402551780a28a51235cb13baac8fda56/9dc27/profile.jpg" class="max-w-sm rounded-lg shadow-2xl" />
-        <div class="lg:pl-8">
-          <p class="pt-6">I live in Samarinda, Kalimantan Timur, Indonesia. I have a passion for a frontend development and want to learn more. I'm still young and inexperienced in a lot of things, but if you need young man with great spirit in programming maybe i am the one you need. I can work in a team, i can be the frontend or backend, and if it needed i can do a fullstack development.</p>
-          <p class="py-2 pb-5">I live in Samarinda, Kalimantan Timur, Indonesia. I have a passion for a frontend development and want to learn more. I'm still young and inexperienced in a lot of things, but if you need young man with great spirit in programming maybe i am the one you need. I can work in a team, i can be the frontend or backend, and if it needed i can do a fullstack development.</p>
-          <div class="flex">
-            <a href="https://bayusetiawan.my.id/" class="btn" target="_blank">Website Pribadi</a>
-            <a href="https://penaku.my.id/" class="btn btn-outline ml-4" target="_blank">Penaku</a>
+<section class="about-me spad">
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-12">
+              <div class="about-left">
+                  <img src="https://instagram.fsri1-1.fna.fbcdn.net/v/t51.2885-15/294049662_611560456976322_2661331196975837906_n.jpg?stp=dst-jpg_e35_p640x640_sh0.08&_nc_ht=instagram.fsri1-1.fna.fbcdn.net&_nc_cat=106&_nc_ohc=3VQALCVaYVAAX8opGQA&edm=ALQROFkBAAAA&ccb=7-5&ig_cache_key=Mjg4NDMzMjMxMTM1OTE4NTEwMA%3D%3D.2-ccb7-5&oh=00_AT8CjcDpHI3t0krD6ccW0OLJm1wSle85FZeCfGsZkRGCuw&oe=6345493F&_nc_sid=30a2ef" alt="">
+                  <div class="about-title">
+                      <span>16 January 2019</span>
+                      <h2>Ananta Yusra Putra Akmal</h2>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                          ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet. Donec in sodales dui, a
+                          blandit nunc. Pellentesque id eros venenatis, sollicitudin neque sodales, vehicula nibh.
+                          Nam massa odio, porttitor vitae efficitur non, ultricies volutpat tellus. Cras egestas
+                          in lacus a finibus. Suspendisse sed urna at elit condimentum viverra. Suspendisse non
+                          lobortis nisi. Maecenas accumsan quam quis porta laoreet. Aliquam felis odio, aliquet
+                          fermentum semper at, porttitor ac mi. Duis vel condimentum risus. Phasellus eu dolor vel
+                          neque commodo accumsan eget et enim. Pellentesque non elit sed risus tincidunt aliquam
+                          eu eget metus.</p>
+                  </div>
+              </div>
           </div>
-        </div>
       </div>
-    </div>
-  </section>
-</main>
+  </div>
+</section>
 
 <?php  require_once('../../layouts/web/footer.php') ?>

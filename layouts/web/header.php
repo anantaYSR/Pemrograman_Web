@@ -7,7 +7,7 @@
     <meta name="keywords" content="Yoga, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Yummy | Template</title>
+    <title>PT. Anandita Putra Akmal</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,700&display=swap" rel="stylesheet">
@@ -29,7 +29,7 @@
     <header class="header-section">
         <div class="container">
             <div class="logo">
-                <a href="./index.html"><img src="img/logo.png" alt=""></a>
+                <a href="./index.html"><img src="../../assets/img/logo.png" style="height: 150px;"></a>
             </div>
             <div class="nav-menu">
                 <?php require_once('navbar.php') ?>

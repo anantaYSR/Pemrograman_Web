@@ -4,8 +4,8 @@
   <div class="container">
       <div class="row">
           <div class="col-lg-12">
-              <div class="about-left">
-                  <img src="https://instagram.fsri1-1.fna.fbcdn.net/v/t51.2885-15/294049662_611560456976322_2661331196975837906_n.jpg?stp=dst-jpg_e35_p640x640_sh0.08&_nc_ht=instagram.fsri1-1.fna.fbcdn.net&_nc_cat=106&_nc_ohc=3VQALCVaYVAAX8opGQA&edm=ALQROFkBAAAA&ccb=7-5&ig_cache_key=Mjg4NDMzMjMxMTM1OTE4NTEwMA%3D%3D.2-ccb7-5&oh=00_AT8CjcDpHI3t0krD6ccW0OLJm1wSle85FZeCfGsZkRGCuw&oe=6345493F&_nc_sid=30a2ef" alt="">
+              <div class="about-left text-center">
+                  <img src="../../assets/img/CC4C3275.JPG" class="img-thumbnail img-fluid shadow-lg" alt="" style="height: 400px;">
                   <div class="about-title">
                       <span>16 January 2019</span>
                       <h2>Ananta Yusra Putra Akmal</h2>

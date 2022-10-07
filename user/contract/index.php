@@ -5,7 +5,7 @@
     <div class="py-4">
         <div class="d-flex justify-content-between w-100 flex-wrap">
             <div class="mb-3 mb-lg-0">
-                <h1 class="h4">Histori Pengiriman</h1>
+                <h1 class="h4">Kontrak</h1>
             </div>
         </div>
     </div>

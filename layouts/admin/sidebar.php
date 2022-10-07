@@ -1,46 +1,89 @@
-<div class="drawer-side">
-  <label for="drawer" class="drawer-overlay"></label> 
-  <ul class="menu p-4 overflow-y-auto w-80 bg-base-200 text-base-content">
-    <?php 
-      $link = $_SERVER['PHP_SELF'];
-      $link_array = explode('/',$link);
-    ?>
-    <?php if ($_SESSION['role'] == 'admin'): ?>
-    <li>
-      <a class="<?= in_array("dashboard", $link_array) ? 'active' : ''  ?>" href="../../admin/dashboard"><i class="fa-solid fa-gauge"></i>Dashboard</a>
-    </li>
-    <li>
-      <a class="<?= in_array("journals", $link_array) ? 'active' : ''  ?>" href="../../admin/journals"><i class="fa-regular fa-newspaper"></i>Daftar Jurnal</a>
-    </li>
-    <li>
-      <a class="<?= in_array("users", $link_array) ? 'active' : ''  ?>" href="../../admin/users"><i class="fa-solid fa-users"></i>Daftar Pengguna</a>
-    </li>
-    <li>
-      <a class="<?= in_array("guides", $link_array) ? 'active' : ''  ?>" href="../../admin/guides"><i class="fa-solid fa-person-circle-question"></i>Panduan</a>
-    </li>
-    <li>
-      <a class="<?= in_array("news", $link_array) ? 'active' : ''  ?>" href="../../admin/news"><i class="fa-solid fa-pen-nib"></i>Berita</a>
-    </li>
-    <li>
-      <a class="<?= in_array("settings", $link_array) ? 'active' : ''  ?>" href="../../admin/settings"><i class="fa-solid fa-gears"></i>Pengaturan</a>
-    </li>
-    <?php else: ?>
-    <li>
-      <a class="<?= in_array("dashboard", $link_array) ? 'active' : ''  ?>" href="../../user/dashboard"><i class="fa-solid fa-gauge"></i>Dashboard</a>
-    </li>
-    <li>
-      <a class="<?= in_array("journals", $link_array) ? 'active' : ''  ?>" href="../../user/journals"><i class="fa-regular fa-newspaper"></i>Jurnal</a>
-    </li>
-    <li>
-      <a class="<?= in_array("bookmarks", $link_array) ? 'active' : ''  ?>" href="../../user/bookmarks"><i class="fa-solid fa-bookmark"></i>Bookmark</a>
-    </li>
-    <li>
-      <a class="<?= in_array("notes", $link_array) ? 'active' : ''  ?>" href="../../user/notes"><i class="fa-regular fa-pen-to-square"></i>Catatan</a>
-    </li>
-    <li>
-      <a class="<?= in_array("profile", $link_array) ? 'active' : ''  ?>" href="../../user/profile"><i class="fa-regular fa-user"></i>Profile</a>
-    </li>
-    <?php endif ?>
-  </ul>
+
+<ul class="nav flex-column pt-3 pt-md-0">
+  <li class="nav-item">
+    <a href="<?= $_SESSION['role'] == 'admin' ? '../../admin/dashboard' : '../../user/dashboard' ?>" class="nav-link d-flex align-items-center">
+      <span class="sidebar-icon">
+        <img src="../../assets/img/logo.png" height="100">
+      </span>
+    </a>
+  </li>
+  <li class="nav-item  active ">
+    <a href="<?= $_SESSION['role'] == 'admin' ? '../../admin/dashboard' : '../../user/dashboard' ?>" class="nav-link">
+      <span class="sidebar-icon">
+        <i class="fa-solid fa-gauge-high"></i>
+      </span> 
+      <span class="sidebar-text">Dashboard</span>
+    </a>
+  </li>
+  <?php if($_SESSION['role'] == 'admin'): ?>
+    <li class="nav-item">
+    <a href="../../admin/delivery/create.php" class="nav-link d-flex justify-content-between">
+      <span>
+        <span class="sidebar-icon"><i class="fa-solid fa-plus"></i></span>
+        <span class="sidebar-text">Tambah Pengiriman</span>
+      </span>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a href="../../admin/delivery" class="nav-link d-flex justify-content-between">
+      <span>
+        <span class="sidebar-icon"><i class="fa-solid fa-truck"></i></span>
+        <span class="sidebar-text">Histori Pengiriman</span>
+      </span>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a href="../../admin/contract" class="nav-link d-flex justify-content-between">
+      <span>
+        <span class="sidebar-icon"><i class="fa-solid fa-file-signature"></i></span>
+        <span class="sidebar-text">Kontrak</span>
+      </span>
+    </a>
+  </li>
+  <li class="nav-item">
+    <span
+      class="nav-link  collapsed  d-flex justify-content-between align-items-center"
+      data-bs-toggle="collapse" data-bs-target="#submenu-components">
+      <span>
+        <span class="sidebar-icon"><i class="fa-solid fa-database"></i></span> 
+        <span class="sidebar-text">Data Master</span>
+      </span>
+      <span class="link-arrow"><i class="fa-solid fa-arrow-right"></i></span>
+    </span>
+    <div class="multi-level collapse " role="list"
+      id="submenu-components" aria-expanded="false">
+      <ul class="flex-column nav">
+        <li class="nav-item">
+          <a class="nav-link"
+            href="../../admin/partner">
+            <span class="sidebar-text">Mitra</span>
+          </a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link" href="../../admin/user">
+            <span class="sidebar-text">Pengguna</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </li>
+  <?php else: ?>
+  <li class="nav-item">
+    <a href="../../user/delivery" class="nav-link d-flex justify-content-between">
+      <span>
+        <span class="sidebar-icon"><i class="fa-solid fa-truck"></i></span>
+        <span class="sidebar-text">Histori Pengiriman</span>
+      </span>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a href="../../user/contract" class="nav-link d-flex justify-content-between">
+      <span>
+        <span class="sidebar-icon"><i class="fa-solid fa-file-signature"></i></span>
+        <span class="sidebar-text">Kontrak</span>
+      </span>
+    </a>
+  </li>
+  <?php endif ?>
   
-</div>
+</ul>

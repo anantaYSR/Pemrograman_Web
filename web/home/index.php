@@ -20,9 +20,9 @@ session_start();
                             <i class="fa fa-plus"></i>
                         </div>
                         <div class="top-recipe-text">
-                            <div class="cat-name">Desert</div>
+                            <div class="cat-name">Ahli</div>
                             <a href="#">
-                                <h4>One Pot Weeknight Lasagna Soup Recipe</h4>
+                                <h4>Kami telah lama di bidang ini</h4>
                             </a>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
                                 ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing
@@ -40,9 +40,9 @@ session_start();
                             </div>
                             <div class="col-sm-8">
                                 <div class="top-recipe-text">
-                                    <div class="cat-name">Vegan</div>
+                                    <div class="cat-name">Kendaraan berat</div>
                                     <a href="#">
-                                        <h4>One Pot Weeknight Lasagna Soup Recipe</h4>
+                                        <h4>Kendaraan tambang dan semacamnya</h4>
                                     </a>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
                                         incididunt ut labore et dolore magna aliqua.</p>
@@ -59,9 +59,9 @@ session_start();
                             </div>
                             <div class="col-sm-8">
                                 <div class="top-recipe-text">
-                                    <div class="cat-name">Meat lover</div>
+                                    <div class="cat-name">Lezat</div>
                                     <a href="#">
-                                        <h4>Veggie soup with Mushrooms</h4>
+                                        <h4>Apa yang kami sediakan terjamin rasanya</h4>
                                     </a>
                                     <p>Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
                                         magna aliqua. Lorem ipsum dolor sit amet, consectetur.</p>
@@ -78,9 +78,9 @@ session_start();
                             </div>
                             <div class="col-sm-8">
                                 <div class="top-recipe-text">
-                                    <div class="cat-name">Desert</div>
+                                    <div class="cat-name">Bersertifikasi</div>
                                     <a href="#">
-                                        <h4>Caramel Ice Cream with Berries</h4>
+                                        <h4>Anda di tangan yagn handal</h4>
                                     </a>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
                                         incididunt ut labore et dolore magna aliqua.</p>
@@ -97,9 +97,9 @@ session_start();
                             </div>
                             <div class="col-sm-8">
                                 <div class="top-recipe-text">
-                                    <div class="cat-name">Desert</div>
+                                    <div class="cat-name">Beramanah</div>
                                     <a href="#">
-                                        <h4>Freash Octopuse with lime juice</h4>
+                                        <h4>Selalu berkontribusi kepada masyarakat</h4>
                                     </a>
                                     <p>Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
                                         magna aliqua. Lorem ipsum dolor sit amet, consectetur.</p>

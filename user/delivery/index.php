@@ -1,6 +1,16 @@
 <?php require_once('../../layouts/admin/header.php') ?>
 
-
+<?php
+$user = find("pengguna", $_SESSION['id']);
+$deliveries = query("SELECT
+            pengiriman.*,
+            kontrak.nomor_kontrak,
+            kontrak.total_bungkus as kontrak_total_bungkus
+        FROM pengiriman
+        JOIN kontrak ON pengiriman.id_kontrak = kontrak.id
+        WHERE kontrak.id_mitra = {$user['id_mitra']}
+    ");
+?>
 <div id="main" class="min-vh-100 pt-4">
     <div class="py-4">
         <div class="d-flex justify-content-between w-100 flex-wrap">
@@ -11,48 +21,28 @@
     </div>
     <div class="card border-0 shadow components-section">
         <div class="card-body">
-        <table class="datatable table w-full">
+            <table class="datatable table w-full">
                 <thead>
                     <tr>
                         <th></th>
                         <th>Tanggal</th>
-                        <th>Waktu</th>
-                        <th>Total Bungkus</th>
-                        <th>Bukti Pengiriman</th>
+                        <th>No. Kontrak</th>
+                        <th>Total Bungkus Dikirim</th>
                         <th>Catatan</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th>1</th>
-                        <th>31 Januari 2022</th>
-                        <td>10:10 - 12:10</td>
-                        <td>220</td>
-                        <td>
-                            <img src="https://images.unsplash.com/photo-1654263736203-a289f57c0d82?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80" class="img-thumbnail img-fluid" style="height: 130px;">
-                        </td>
-                        <td>-</td>
-                    </tr>
-                    <tr>
-                        <th>2</th>
-                        <th>30 Januari 2022</th>
-                        <td>10:10 - 12:10</td>
-                        <td>220</td>
-                        <td>
-                            <img src="https://images.unsplash.com/photo-1654263736203-a289f57c0d82?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80" class="img-thumbnail img-fluid" style="height: 130px;">
-                        </td>
-                        <td>-</td>
-                    </tr>
-                    <tr>
-                        <th>3</th>
-                        <th>29 Januari 2022</th>
-                        <td>10:10 - 12:10</td>
-                        <td>220</td>
-                        <td>
-                            <img src="https://images.unsplash.com/photo-1654263736203-a289f57c0d82?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80" class="img-thumbnail img-fluid" style="height: 130px;">
-                        </td>
-                        <td>-</td>
-                    </tr>
+                    <?php $i = 1; ?>
+                    <?php foreach ($deliveries as $delivery) : ?>
+                        <tr>
+                            <th><?= $i ?></th>
+                            <td><?= $delivery['tanggal'] ?></td>
+                            <td><?= $delivery['nomor_kontrak'] ?> (<?= $delivery['kontrak_total_bungkus'] ?> Bungkus)</td>
+                            <td><?= $delivery['total_bungkus'] ?></td>
+                            <td><?= $delivery['catatan'] ?></td>
+                            <?php $i++ ?>
+                        </tr>
+                    <?php endforeach; ?>
                 </tbody>
             </table>
         </div>

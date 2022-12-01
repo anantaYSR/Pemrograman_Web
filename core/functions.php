@@ -1,4 +1,7 @@
 <?php
+
+require_once('config.php');
+
 function query($query) {
 	global $connection;
 	$result = mysqli_query($connection, $query);
@@ -76,56 +79,22 @@ function delete_multiple($table, $ids) {
 	return mysqli_affected_rows($connection) > 0;
 }
 
-function upload($field, $path = '../../img/') {
-
+function upload($field, $path = '../storage/', $prefix = null) {
 	$namaFile = $_FILES[$field]['name'];
 	$ukuranFile = $_FILES[$field]['size'];
 	$error = $_FILES[$field]['error'];
 	$tmpName = $_FILES[$field]['tmp_name'];
-	// cek apakah tidak ada gambar yang diupload
-	if( $error === 4 ) {
-		echo "<script>
-				alert('pilih gambar terlebih dahulu!');
-			  </script>";
-		return false;
-	}
 
-	// cek apakah yang diupload adalah gambar
-	$ekstensiGambarValid = ['jpg', 'jpeg', 'png'];
 	$ekstensiGambar = explode('.', $namaFile);
 	$ekstensiGambar = strtolower(end($ekstensiGambar));
-	if( !in_array($ekstensiGambar, $ekstensiGambarValid) ) {
-		echo "<script>
-				alert('yang anda upload bukan gambar!');
-			  </script>";
-		return false;
-	}
 
-	// cek jika ukurannya terlalu besar
-	if( $ukuranFile > 1000000 ) {
-		echo "<script>
-				alert('ukuran gambar terlalu besar!');
-			  </script>";
-		return false;
-	}
-
-	// lolos pengecekan, gambar siap diupload
-	// generate nama gambar baru
-	$namaFileBaru = uniqid();
-	$namaFileBaru .= '.';
-	$namaFileBaru .= $ekstensiGambar;
-
-	move_uploaded_file($tmpName, $path . $namaFileBaru);
-
-	return $namaFileBaru;
+	$file = $prefix ? $prefix . "-" . uniqid() : uniqid();
+	$file .= '.';
+	$file .= $ekstensiGambar;
+	move_uploaded_file($tmpName, "$path$file");
+	return $file;
 }
 
 function flash($message, $type) {
 	$_SESSION['flash'][$type] = $message;
-}
-
-// LEND
-function lend_books($id) {
-	$result = query("SELECT *, `lend_details`.`id` as lend_detail_id FROM `lend_details` JOIN `books` ON `lend_details`.`book_id` = `books`.`id`  WHERE `lend_details`.`lend_id` = $id ");
-	return $result;
 }

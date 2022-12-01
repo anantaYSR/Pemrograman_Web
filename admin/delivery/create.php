@@ -1,63 +1,49 @@
 <?php require_once('../../layouts/admin/header.php') ?>
 
-
+<?php
+$contracts = query("SELECT kontrak.*, mitra.nama as nama_mitra FROM kontrak JOIN mitra ON kontrak.id_mitra = mitra.id");
+?>
+<?php
+if (isset($_POST['submit'])) {
+    unset($_POST['submit']);
+    store("pengiriman");
+    flash("Berhasil menambah pengiriman!", "success");
+    header("Location: ./index.php");
+}
+?>
 <div id="main" class="min-vh-100 pt-4">
     <div class="py-4">
         <div class="d-flex justify-content-between w-100 flex-wrap">
             <div class="mb-3 mb-lg-0">
-                <h1 class="h4">Tambah Pengiriman</h1>
+                <h1 class="h4">Tambah Kontrak</h1>
             </div>
         </div>
     </div>
     <div class="card border-0 shadow components-section">
         <div class="card-body">
-            <form action="">
-                <div class="row">
-                    <div class="col-md-8 col-12 mb-3">
-                        <label for="birthday">Tanggal Pengiriman</label>
-                        <select class="form-select select2" id="country" aria-label="Default select example">
-                            <option value="1">APA-CTR-2022/01/01 - Mitra 1</option>
-                            <option value="2">APA-CTR-2022/02/01 - Mitra 2</option>
-                            <option value="3">APA-CTR-2022/03/01 - Mitra 3</option>
-                        </select>
-                    </div>
-                    <div class="col-md-4 col-12 mb-3">
-                    <label for="birthday">Total Bungkusan</label>
-                        <input class="form-control" id="birthday" type="number" required>   
-                    </div>
-                    <div class="col-md-4 col-12 mb-3">
-                        <label for="birthday">Tanggal Pengiriman</label>
-                        <div class="input-group">
-                            <span class="input-group-text"><i class="fa-solid fa-calendar"></i></span>
-                            <input data-datepicker="" class="form-control" id="birthday" type="text" placeholder="dd/mm/yyyy" required>                                               
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-12 mb-3">
-                        <label for="birthday">Jam Pengiriman</label>
-                        <div class="input-group">
-                            <span class="input-group-text"><i class="fa-solid fa-clock"></i></span>
-                            <input class="form-control" id="birthday" type="text" placeholder="hh:mm" required>                                               
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-12 mb-3">
-                        <label for="birthday">Jam Sampai</label>
-                        <div class="input-group">
-                            <span class="input-group-text"><i class="fa-solid fa-clock"></i></span>
-                            <input class="form-control" id="birthday" type="text" placeholder="hh:mm" required>                                               
-                        </div>
-                    </div>
-                    <div class="col-12 mb-3">
-                            <label for="formFile" class="form-label">Bukti Pengiriman</label>
-                            <input class="form-control" type="file" id="formFile" no>
-                    </div>
-                    <div class="col-12">
-                        <label for="birthday">Catatan</label>
-                        <textarea class="form-control editor" placeholder="Catatan"></textarea>
-                    </div>
+            <form action="" method="POST">
+                <div class="mb-3">
+                    <label for="id_kontrak">Kontrak</label>
+                    <select name="id_kontrak" id="id_kontrak" class="form-control">
+                        <?php foreach ($contracts as $contract) : ?>
+                            <option value="<?= $contract['id'] ?> "><?= $contract['nama_mitra'] ?> - <?= $contract['nomor_kontrak'] ?></option>
+                        <?php endforeach; ?>
+                    </select>
                 </div>
-                
+                <div class="mb-3">
+                    <label for="tanggal">Tanggal Pengantaran</label>
+                    <input class="form-control" name="tanggal" id="tanggal" type="date" required>
+                </div>
+                <div class="mb-3">
+                    <label for="total_bungkus">Total Bungkus</label>
+                    <input class="form-control" name="total_bungkus" id="total_bungkus" type="number" required>
+                </div>
+                <div class="mb-3">
+                    <label for="catatan">Catatan</label>
+                    <textarea name="catatan" id="catatan" cols="30" rows="10" class="form-control"></textarea>
+                </div>
                 <div class="d-flex align-items-center justify-content-end">
-                    <button type="submit" class="btn btn-primary">Simpan</button>
+                    <button type="submit" class="btn btn-primary" name="submit">Simpan</button>
                 </div>
             </form>
         </div>

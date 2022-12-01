@@ -1,6 +1,7 @@
 <?php
 
 session_start();
+include("../core/functions.php");
 
 if(isset($_SESSION['status'])) {
   if($_SESSION['role'] == 'admin') {
@@ -11,18 +12,24 @@ if(isset($_SESSION['status'])) {
 }
 
 if(isset($_POST['username'])) {
-  if($_POST['username'] == 'admin' && $_POST['password'] == 'password') {
-    $_SESSION['username'] = "admin";
-    $_SESSION['role'] = 'admin';
-    $_SESSION['status'] = "login";
-    header("Location:../admin/dashboard");
-  } else if($_POST['username'] == 'user' && $_POST['password'] == 'password') {
-    $_SESSION['username'] = "user";
-    $_SESSION['role'] = 'user';
-    $_SESSION['status'] = "login";
-    header("Location:../user/dashboard");
-  } else {
+
+  $user = query("SELECT * FROM pengguna WHERE username='{$_POST['username']}'");
+  if(empty($user)) {
     header("Location:./login.php?denied=true");
+  }
+  $user = $user[0];
+  $isPasswordCorrect = password_verify($_POST['password'], $user['password']);
+  if(!$isPasswordCorrect) {
+    header("Location:./login.php?denied=true");
+  }
+  $_SESSION['username'] = $user['username'];
+  $_SESSION['id'] = $user['id'];
+  $_SESSION['role'] = $user['id_mitra'] == null ? 'admin' : 'user';
+  $_SESSION['status'] = "login";
+  if($_SESSION['role'] == 'admin') {
+    header("Location:../admin/dashboard");
+  } else {
+    header("Location:../user/dashboard");
   }
 }
 ?>
@@ -33,6 +40,11 @@ if(isset($_POST['username'])) {
             <div class="text-center text-md-center mb-4 mt-md-0">
                 <img src="../assets/img/logo.png" style="height: 100px;" alt="">
             </div>
+            <?php if(isset($_GET['denied'])): ?>
+            <div class="alert alert-error">
+              <span>Password atau email salah!</span>
+            </div>
+            <?php endif; ?>
             <form action="" class="mt-4" method="POST">
                 <!-- Form -->
                 <div class="form-group mb-4">
@@ -49,16 +61,6 @@ if(isset($_POST['username'])) {
                         <div class="input-group">
                             <input type="password" name="password" placeholder="Password" class="form-control" id="password" required>
                         </div>  
-                    </div>
-                    <!-- End of Form -->
-                    <div class="d-flex justify-content-between align-items-top mb-4">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="remember">
-                            <label class="form-check-label mb-0" for="remember">
-                              Ingat saya
-                            </label>
-                        </div>
-                        <div><a href="./forgot-password.html" class="small text-right">Lupa password?</a></div>
                     </div>
                 </div>
                 <div class="d-grid">

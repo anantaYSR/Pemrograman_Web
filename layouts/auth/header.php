@@ -4,7 +4,7 @@
 <head> 
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <!-- Primary Meta Tags -->
-  <title>Volt Premium Bootstrap Dashboard - Sign in page</title>
+  <title>PT Anandita - Sign in page</title>
   <!-- Sweet Alert -->
   <link type="text/css" href="../assets/dashboard/vendor/sweetalert2/dist/sweetalert2.min.css" rel="stylesheet">
   <!-- Notyf -->
